@@ -6,10 +6,26 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-background: #ecf0f1;
+  --color-foreground: #171717;
+
+  --color-primary: #1e90ff;
+  --color-primary-light: #add8e6;
+  --color-primary-dark: #1c3a5a;
+
+  --color-secondary: #32cd32;
+  --color-secondary-light: #98fb98;
+  --color-secondary-dark: #228b22;
+
+  --color-tertiary: #9b59b6;
+
+  --color-neutral-light: #bdc3c7;
+  --color-neutral-dark: #2c3e50;
+
+  --color-accent: #f1c40f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +39,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
 }
