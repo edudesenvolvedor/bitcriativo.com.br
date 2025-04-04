@@ -57,6 +57,7 @@ const Contact = () => {
 
   return (
     <Sections
+      id="contato"
       label={'Contato'}
       labelAlign={'bottomLeft'}
       className={'text-center'}

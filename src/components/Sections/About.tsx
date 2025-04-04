@@ -34,6 +34,7 @@ export const About = () => {
 
   return (
     <Sections
+      id="sobre-nos"
       ref={sectionRef}
       label={'Sobre nós'}
       labelAlign={'bottomRight'}

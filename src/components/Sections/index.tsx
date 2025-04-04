@@ -30,12 +30,14 @@ type Props = {
   className?: string;
   label?: string;
   ref?: Ref<HTMLElement> | undefined;
+  id?: string;
 } & VariantProps<typeof labelClasses>;
 
-export const Sections = ({ children, label, labelAlign, className, ref, ...props }: Props) => {
+export const Sections = ({ children, label, labelAlign, className, ref, id, ...props }: Props) => {
   return (
     <section
       ref={ref}
+      id={id}
       className="relative min-h-screen flex items-center justify-center bg-gray-100 p-4 md:p-6 lg:p-8"
     >
       <div className={`max-w-6xl mx-auto w-full ${className || ''}`}>{children}</div>
