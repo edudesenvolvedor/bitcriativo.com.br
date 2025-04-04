@@ -9,11 +9,13 @@ import { motion } from 'framer-motion';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
+    phone_number: '',
     email: '',
+    subject: '',
     message: '',
   });
 
-  const [hasAnimated, setHasAnimated] = useState(false); // Marca se a animação já foi disparada
+  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,11 +37,11 @@ const Contact = () => {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true); // Dispara a animação apenas uma vez
+          setHasAnimated(true);
         }
       },
       {
-        threshold: 0.75, // Aciona quando 75% do componente estiver visível
+        threshold: 0.75,
       },
     );
 
@@ -47,7 +49,6 @@ const Contact = () => {
       observer.observe(sectionRef.current);
     }
 
-    // Limpeza do observer ao desmontar o componente
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -99,6 +100,21 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Seu Nome"
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="name" className="block text-lg text-gray-900 font-semibold mb-2">
+            Telefone
+          </label>
+          <Input
+            type="text"
+            id="phone_number"
+            name="phone_number"
+            value={formData.phone_number}
+            onChange={handleChange}
+            placeholder="Seu telefone"
             required
           />
         </div>
