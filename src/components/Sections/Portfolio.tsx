@@ -57,7 +57,7 @@ export function Portfolio() {
   }, []);
 
   return (
-    <Sections ref={sectionRef} label={'Portfólio'} className={'text-center'}>
+    <Sections id="portfolio" ref={sectionRef} label={'Portfólio'} className={'text-center'}>
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}

@@ -98,7 +98,7 @@ const PricingCard = ({ name, description, price, features }: IProps) => (
 );
 
 export const Pricing = () => (
-  <section className="py-16 bg-gray-100" id="pricing">
+  <section id="planos" className="py-16 bg-gray-100">
     <div className="container mx-auto text-center">
       <div>
         <h3 className="text-2xl font-semibold text-gray-900">
