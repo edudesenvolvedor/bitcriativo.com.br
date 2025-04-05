@@ -1,6 +1,6 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import { ReactNode, Ref } from 'react';
+import React, { ReactNode, Ref } from 'react';
 
 const labelClasses = cva(
   'absolute text-gray-300 font-bold uppercase opacity-50 select-none text-4xl md:text-6xl lg:text-8xl',
@@ -31,22 +31,40 @@ type Props = {
   label?: string;
   ref?: Ref<HTMLElement> | undefined;
   id?: string;
+  title?: string | ReactNode;
+  description?: string | ReactNode;
 } & VariantProps<typeof labelClasses>;
 
-export const Section = ({ children, label, labelAlign, className, ref, id, ...props }: Props) => {
+export const Section = ({
+  children,
+  label,
+  labelAlign,
+  className,
+  ref,
+  id,
+  title,
+  description,
+  ...props
+}: Props) => {
   return (
     <section
       ref={ref}
       id={id}
-      className="relative min-h-screen flex items-center justify-center bg-gray-100 p-4 md:p-6 lg:p-8"
+      className="relative min-h-screen items-center justify-center bg-gray-100 p-4 md:p-6 lg:p-8"
     >
-      <div className={`max-w-6xl mx-auto w-full ${className || ''}`}>{children}</div>
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-5xl md:text-6xl font-bold uppercase text-gray-900 leading-tight">
+          {title}
+        </h2>
+        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto pb-16">{description}</p>
+        <div className={`max-w-6xl mx-auto w-full ${className || ''}`}>{children}</div>
 
-      {label && (
-        <div className={labelClasses({ labelAlign })} {...props}>
-          {label}
-        </div>
-      )}
+        {label && (
+          <div className={labelClasses({ labelAlign })} {...props}>
+            {label}
+          </div>
+        )}
+      </div>
     </section>
   );
 };
