@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import { motion } from 'framer-motion';
@@ -57,7 +57,7 @@ const Contact = () => {
   }, [hasAnimated]);
 
   return (
-    <Sections
+    <Section
       id="contato"
       label={'Contato'}
       labelAlign={'bottomLeft'}
@@ -154,7 +154,7 @@ const Contact = () => {
           Enviar Mensagem
         </Button>
       </motion.form>
-    </Sections>
+    </Section>
   );
 };
 

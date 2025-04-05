@@ -33,7 +33,7 @@ type Props = {
   id?: string;
 } & VariantProps<typeof labelClasses>;
 
-export const Sections = ({ children, label, labelAlign, className, ref, id, ...props }: Props) => {
+export const Section = ({ children, label, labelAlign, className, ref, id, ...props }: Props) => {
   return (
     <section
       ref={ref}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 import imgAboutUs from '@/assets/images/img_4.png';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,7 +33,7 @@ export const About = () => {
   }, []);
 
   return (
-    <Sections
+    <Section
       id="sobre-nos"
       ref={sectionRef}
       label={'Sobre nós'}
@@ -80,6 +80,6 @@ export const About = () => {
           className="w-full h-auto object-cover shadow-2xl"
         />
       </motion.div>
-    </Sections>
+    </Section>
   );
 };

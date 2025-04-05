@@ -1,7 +1,7 @@
 import { Navlink } from '@/components/Navbar/navlink';
 import { Navbar } from '@/components/Navbar';
 import { ReactNode } from 'react';
-import { Footer } from '@/components/Sections/Footer';
+import { Footer } from '@/components/Section/Footer';
 
 type Props = {
   children: ReactNode;

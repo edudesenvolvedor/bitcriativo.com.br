@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 
 const portfolioProjects = [
   {
@@ -57,7 +57,7 @@ export function Portfolio() {
   }, []);
 
   return (
-    <Sections id="portfolio" ref={sectionRef} label={'Portfólio'} className={'text-center'}>
+    <Section id="portfolio" ref={sectionRef} label={'Portfólio'} className={'text-center'}>
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -101,6 +101,6 @@ export function Portfolio() {
           </motion.div>
         ))}
       </div>
-    </Sections>
+    </Section>
   );
 }

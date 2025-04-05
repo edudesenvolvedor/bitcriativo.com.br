@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 import { CheckCircle } from 'lucide-react';
 
 const features = [
@@ -51,7 +51,7 @@ const Features = () => {
   }, []);
 
   return (
-    <Sections id="recursos" ref={sectionRef} className={'text-center'}>
+    <Section id="recursos" ref={sectionRef} className={'text-center'}>
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -86,7 +86,7 @@ const Features = () => {
           </motion.div>
         ))}
       </div>
-    </Sections>
+    </Section>
   );
 };
 
