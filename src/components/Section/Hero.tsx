@@ -1,15 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 import Button from '@/components/Button';
 
 export const Hero = () => {
   return (
-    <Sections
+    <Section
       id="inicio"
       label={'Tecnologia'}
-      className={'grid md:grid-cols-2 gap-8 mt-32 lg:mt-0'}
+      className={'grid md:grid-cols-2 gap-8 mt-32 lg:mt-0 text-start'}
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -47,6 +47,6 @@ export const Hero = () => {
           className="absolute h-auto object-cover"
         />
       </div>
-    </Sections>
+    </Section>
   );
 };

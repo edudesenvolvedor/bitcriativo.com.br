@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sections } from '@/components/Sections/index';
+import { Section } from '@/components/Section/index';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -28,7 +28,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <Sections id="depoimentos" className={'text-center'}>
+    <Section id="depoimentos" className={'text-center'}>
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const Testimonials = () => {
           </motion.div>
         ))}
       </div>
-    </Sections>
+    </Section>
   );
 };
 
