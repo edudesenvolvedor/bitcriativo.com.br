@@ -6,7 +6,11 @@ import Button from '@/components/Button';
 
 export const Hero = () => {
   return (
-    <Section id="inicio" label={'Tecnologia'} className={'grid md:grid-cols-2 gap-8 mt-32 lg:mt-0'}>
+    <Section
+      id="inicio"
+      label={'Tecnologia'}
+      className={'grid md:grid-cols-2 gap-8 mt-32 lg:mt-0 text-start'}
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

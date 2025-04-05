@@ -38,7 +38,7 @@ export const About = () => {
       ref={sectionRef}
       label={'Sobre nós'}
       labelAlign={'bottomRight'}
-      className={'grid md:grid-cols-2 gap-8'}
+      className={'grid md:grid-cols-2 gap-8 text-start'}
     >
       <motion.div
         initial={{ opacity: 0, x: -30 }}
