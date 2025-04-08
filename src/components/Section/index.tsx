@@ -56,7 +56,7 @@ export const Section = ({
         <h2 className="text-5xl md:text-6xl font-bold uppercase text-gray-900 leading-tight">
           {title}
         </h2>
-        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto pb-16">{description}</p>
+        <div className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto pb-16">{description}</div>
         <div className={`max-w-6xl mx-auto w-full ${className || ''}`}>{children}</div>
 
         {label && (
