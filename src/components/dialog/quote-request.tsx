@@ -4,8 +4,9 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import Input from '@/components/Input';
 import React, { FC, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import Button from '@/components/Button';
+import MaskedPhoneInput from '@/components/Input/masked-phone-input';
 
 interface IProps {
   textButton: string;
@@ -20,7 +21,7 @@ interface IFormData {
 export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { register, handleSubmit } = useForm<IFormData>();
+  const { register, handleSubmit, control } = useForm<IFormData>();
 
   const handleSubmitForm = (data: IFormData) => {
     console.log('Formulário enviado:', data);
@@ -52,11 +53,18 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
             <label htmlFor="phoneNumber" className="block text-lg text-gray-900 font-semibold mb-1">
               Telefone
             </label>
-            <Input
-              id="phoneNumber"
-              {...register('phoneNumber')}
-              type="text"
-              placeholder="Seu telefone"
+            <Controller
+              name="phoneNumber"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <MaskedPhoneInput
+                  id="phoneNumber"
+                  className="w-full border border-gray-300 px-4 py-2 rounded-xl"
+                  placeholder="(99) 99999-9999"
+                  {...field}
+                />
+              )}
             />
 
             <label htmlFor="email" className="block text-lg text-gray-900 font-semibold mb-1">
@@ -66,7 +74,7 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
 
             <div className="mt-6 flex justify-end gap-2">
               <Dialog.Close asChild>
-                <Button type="submit" className="font-semibold" variant="ghost">
+                <Button type="button" className="font-semibold" variant="ghost">
                   Cancelar
                 </Button>
               </Dialog.Close>
