@@ -2,6 +2,7 @@ interface FormData {
   name: string;
   phoneNumber: string;
   email: string;
+  message?: string;
 }
 
 export const generateEmailHtml = (data: FormData) => {
@@ -15,7 +16,7 @@ export const generateEmailHtml = (data: FormData) => {
         <p><strong>Telefone:</strong> ${data.phoneNumber}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Assunto:</strong> Solicitação de Orçamento | ${data.name}</p>
-        <p><strong>Mensagem:</strong> Solicitação feita pelo site</p>
+        <p><strong>Mensagem:</strong> ${data?.message ?? 'Solicitação feita pelo site'}</p>
       </div>
     </body>
   </html>
