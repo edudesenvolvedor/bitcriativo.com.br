@@ -23,10 +23,12 @@ interface IFormData {
 
 export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { register, handleSubmit, control } = useForm<IFormData>();
 
   const handleSubmitForm = async (data: IFormData) => {
+    setIsLoading(true);
     for (let x = 0; x < 3; x++) {
       try {
         const result = await api.get('/status');
@@ -39,6 +41,7 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
           message: generateEmailHtml(data),
         });
         toast.success('Enviado com sucesso!');
+        setIsLoading(false);
         if (result.status === 200) break;
       } catch (e) {
         toast.error('Error ao enviar o email');
@@ -46,6 +49,7 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
         console.error(e);
       }
     }
+    setIsLoading(false);
     setIsOpen(false);
   };
 
@@ -100,7 +104,7 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
                 </Button>
               </Dialog.Close>
 
-              <Button type="submit" className="font-semibold">
+              <Button isLoading={isLoading} type="submit" className="font-semibold">
                 Enviar
               </Button>
             </div>
