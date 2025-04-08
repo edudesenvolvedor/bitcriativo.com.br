@@ -9,6 +9,7 @@ import Button from '@/components/Button';
 import MaskedPhoneInput from '@/components/Input/masked-phone-input';
 import { api } from '@/libs/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
+import { toast } from 'sonner';
 
 interface IProps {
   textButton: string;
@@ -37,8 +38,10 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
           subject: `Solicitação de Orçamento | ${data.name}`,
           message: generateEmailHtml(data),
         });
+        toast.success('Enviado com sucesso!');
         if (result.status === 200) break;
       } catch (e) {
+        toast.error('Error ao enviar o email');
         console.log('Tentativa', x);
         console.error(e);
       }

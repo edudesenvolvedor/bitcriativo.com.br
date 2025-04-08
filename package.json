@@ -26,7 +26,8 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
     "react-input-mask": "^2.0.4",
-    "react-scroll": "^1.9.3"
+    "react-scroll": "^1.9.3",
+    "sonner": "^2.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
