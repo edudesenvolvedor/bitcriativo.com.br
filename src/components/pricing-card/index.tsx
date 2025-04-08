@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Check } from '@phosphor-icons/react/dist/ssr';
-import Button from '@/components/Button';
+import { ButtonQuoteRequest } from '@/components/dialog/quote-request';
 
 const styles = cva('border rounded-lg shadow-sm divide-y bg-white', {
   variants: {
@@ -21,7 +21,6 @@ interface IProps extends VariantProps<typeof styles> {
   price: string;
   features: string[];
   buttonText?: string;
-  onButtonClick?: () => void;
 }
 
 const PricingCard: FC<IProps> = ({
@@ -30,7 +29,6 @@ const PricingCard: FC<IProps> = ({
   price,
   features,
   buttonText = 'Solicitar um Orçamento',
-  onButtonClick,
   variant,
 }) => (
   <div className={styles({ variant })}>
@@ -41,9 +39,7 @@ const PricingCard: FC<IProps> = ({
         <span className="text-4xl font-bold tracking-tighter">{price}</span>
         <span className="text-base font-medium text-slate-500">/mês</span>
       </p>
-      <Button className="w-full mt-8 font-semibold" onClick={onButtonClick}>
-        {buttonText}
-      </Button>
+      <ButtonQuoteRequest textButton={buttonText} />
     </div>
     <div className="pt-6 pb-8 px-6">
       <h3 className="text-sm font-extrabold uppercase text-[1.2rem]">Serviços Inclusos</h3>
