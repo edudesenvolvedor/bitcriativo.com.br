@@ -7,6 +7,8 @@ import React, { FC, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import Button from '@/components/Button';
 import MaskedPhoneInput from '@/components/Input/masked-phone-input';
+import { api } from '@/libs/data/api';
+import { generateEmailHtml } from '@/templates/email/quote-request';
 
 interface IProps {
   textButton: string;
@@ -23,8 +25,24 @@ export const ButtonQuoteRequest: FC<IProps> = ({ textButton }: IProps) => {
 
   const { register, handleSubmit, control } = useForm<IFormData>();
 
-  const handleSubmitForm = (data: IFormData) => {
-    console.log('Formulário enviado:', data);
+  const handleSubmitForm = async (data: IFormData) => {
+    for (let x = 0; x < 3; x++) {
+      try {
+        const result = await api.get('/status');
+        await api.post('/contact/email/send', {
+          firstName: data.name,
+          lastName: 'doe',
+          phoneNumber: data.phoneNumber,
+          email: data.email,
+          subject: `Solicitação de Orçamento | ${data.name}`,
+          message: generateEmailHtml(data),
+        });
+        if (result.status === 200) break;
+      } catch (e) {
+        console.log('Tentativa', x);
+        console.error(e);
+      }
+    }
     setIsOpen(false);
   };
 
