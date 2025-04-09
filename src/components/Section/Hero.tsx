@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Section } from '@/components/Section/index';
-import Button from '@/components/Button';
+import Link from 'next/link';
 
 export const Hero = () => {
   return (
@@ -24,8 +24,15 @@ export const Hero = () => {
           Sua empresa merece tecnologia de ponta. Acesse uma equipe de TI especializada e impulsione
           seu negócio com inovação.
         </p>
-        <div className="mt-6">
-          <Button variant={'secondary'}>Comece Agora</Button>
+        <div className="mt-6 flex">
+          <Link
+            className={
+              'flex items-center justify-center font-medium rounded-lg transition-all duration-300 cursor-pointer bg-gray-900 text-white hover:bg-gray-700 py-3 px-6'
+            }
+            href={'/#planos'}
+          >
+            Comece Agora
+          </Link>
         </div>
       </motion.div>
 

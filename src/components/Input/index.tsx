@@ -31,6 +31,8 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
     error?: boolean;
   };
 
+export type CustomInputTypes = InputProps;
+
 const Input: React.FC<InputProps> = ({ variant, size, disabled, error, className, ...props }) => {
   return (
     <input
