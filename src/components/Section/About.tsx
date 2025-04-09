@@ -62,7 +62,7 @@ export const About = () => {
             className={
               'flex items-center justify-center font-medium rounded-lg transition-all duration-300 cursor-pointer bg-gray-900 text-white hover:bg-gray-700 py-3 px-6'
             }
-            href={'/#contato'}
+            href={'/#planos'}
           >
             Fale Conosco
           </Link>

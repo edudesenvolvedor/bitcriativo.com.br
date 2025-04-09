@@ -65,7 +65,9 @@ const Navbar = ({ children }: Props) => {
             {children}
           </ul>
 
-          <Button>Quero um Orçamento</Button>
+          <Link href={'/#planos'}>
+            <Button>Quero um Orçamento</Button>
+          </Link>
         </div>
 
         <button className="md:hidden text-[#101828] focus:outline-none" onClick={toggleMenu}>
