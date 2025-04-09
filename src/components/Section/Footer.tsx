@@ -13,65 +13,37 @@ const Footer = () => {
             Transformando a tecnologia para pequenas empresas.
           </p>
         </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-lg">
-          <div>
-            <h3 className="font-semibold mb-4 text-red-500">Links Rápidos</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/#home" className="hover:text-red-500">
-                  Início
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-red-500">
-                  Serviços
-                </Link>
-              </li>
-              <li>
-                <Link href="/#about" className="hover:text-red-500">
-                  Sobre Nós
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="hover:text-red-500">
-                  Contato
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 text-red-500">Contato</h3>
-            <ul className="space-y-2">
-              <li>Email: contato@bitcriativo.com.br</li>
-              <li>Telefone: (91) 98556-1718</li>
-            </ul>
-          </div>
-
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 text-lg">
           <div>
             <h3 className="font-semibold mb-4 text-red-500">Siga-nos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.linkedin.com" className="hover:text-red-500">
+                <Link href="https://www.linkedin.com" className="hover:text-red-500">
                   LinkedIn
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://www.facebook.com" className="hover:text-red-500">
+                <Link href="https://www.facebook.com" className="hover:text-red-500">
                   Facebook
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://www.twitter.com" className="hover:text-red-500">
+                <Link href="https://www.twitter.com" className="hover:text-red-500">
                   Twitter
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://www.instagram.com" className="hover:text-red-500">
+                <Link href="https://www.instagram.com" className="hover:text-red-500">
                   Instagram
-                </a>
+                </Link>
               </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-4 text-red-500">Contato</h3>
+            <ul className="space-y-2">
+              <li>E-Mail: contato@bitcriativo.com.br</li>
+              <li>Telefone: (91) 98556-1718</li>
             </ul>
           </div>
 
