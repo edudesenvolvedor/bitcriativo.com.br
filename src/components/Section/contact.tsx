@@ -154,7 +154,7 @@ const Contact = () => {
             render={({ field }) => (
               <MaskedPhoneInput
                 id="phoneNumber"
-                className={`w-full border px-4 py-2 rounded-xl ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'}`}
+                className={`w-full border px-4 py-2 ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'}`}
                 placeholder="(99) 99999-9999"
                 {...field}
               />
