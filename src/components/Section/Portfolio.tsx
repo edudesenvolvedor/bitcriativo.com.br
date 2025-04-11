@@ -7,18 +7,21 @@ import { PortfolioView } from '@/components/dialog/portfolio-view';
 
 const portfolioProjects = [
   {
+    id: 1,
     title: 'Projeto A',
     description: 'Um sistema de gerenciamento de tarefas para pequenas equipes.',
     image: 'https://picsum.photos/600/400',
     link: '#',
   },
   {
+    id: 2,
     title: 'Projeto B',
     description: 'Plataforma de e-commerce personalizada com integração de pagamentos.',
     image: 'https://picsum.photos/600/400',
     link: '#',
   },
   {
+    id: 3,
     title: 'Projeto D',
     description: 'Site institucional para uma organização sem fins lucrativos.',
     image: 'https://picsum.photos/600/1200',
@@ -88,7 +91,8 @@ export function Portfolio() {
               <div className="text-white">
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
                 <p className="text-lg mt-2">{project.description}</p>
-                <PortfolioView textButton={'Ver Mais'} />
+
+                <PortfolioView key={index} id={project.id} textButton={'Ver Mais'} />
               </div>
             </div>
           </motion.div>

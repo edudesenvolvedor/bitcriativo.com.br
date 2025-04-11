@@ -30,7 +30,7 @@ interface IPortfolioData {
 }
 
 interface IPortfolioViewProps {
-  idPortfolio?: number;
+  id: number;
   textButton: string;
 }
 
@@ -48,6 +48,10 @@ interface ListOfTechnologiesProps {
 interface CardIconProps {
   url: string;
   alt?: string;
+}
+
+interface IContentProps {
+  id: number;
 }
 
 const CardIcon: FC<CardIconProps> = ({ url, alt = '' }) => (
@@ -97,7 +101,7 @@ const Footer: FC = () => (
   </DialogFooter>
 );
 
-const Content: FC = () => {
+const Content: FC<IContentProps> = ({ id }: IContentProps) => {
   const [data, setData] = useState<IPortfolioData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -105,8 +109,8 @@ const Content: FC = () => {
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/portfolios');
-      setData(response.data.data[0]);
+      const response = await axios.get(`http://localhost:3000/api/v1/portfolios/${id}`);
+      setData(response.data);
       setError(null);
     } catch (error) {
       console.error('Erro ao buscar portfolios:', error);
@@ -143,13 +147,13 @@ const Content: FC = () => {
   );
 };
 
-export const PortfolioView: FC<IPortfolioViewProps> = ({ textButton }) => {
+export const PortfolioView: FC<IPortfolioViewProps> = ({ textButton, id }: IPortfolioViewProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">{textButton}</Button>
       </DialogTrigger>
-      <Content />
+      <Content id={id} />
     </Dialog>
   );
 };
