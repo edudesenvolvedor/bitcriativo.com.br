@@ -1,103 +1,155 @@
 'use client';
 
-import * as Dialog from '@radix-ui/react-dialog';
-import { Cross2Icon } from '@radix-ui/react-icons';
-import React, { useRef, useState } from 'react';
-import Button from '@/components/Button';
+import { FC, useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
+import axios from 'axios';
 
-interface IProps {
+import Button from '@/components/Button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
+interface ITechnologies {
+  title: string;
+  listUrlImage: string[];
+}
+
+interface IPortfolioData {
+  id: number;
+  title: string;
+  description: string;
+  paragraph: string[];
+  technologies: ITechnologies[];
+}
+
+interface IPortfolioViewProps {
+  idPortfolio?: number;
   textButton: string;
 }
 
-export const PortfolioView: React.FC<IProps> = ({ textButton }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scale, setScale] = useState(1);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+interface IHeaderProps {
+  title: string;
+  description: string;
+  paragraph: string[];
+}
 
-  const imageRef = useRef<HTMLImageElement>(null);
+interface ListOfTechnologiesProps {
+  title?: string;
+  listUrlImage?: string[];
+}
 
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.1 : 0.1;
-    setScale((prev) => Math.min(Math.max(prev + delta, 0.5), 3));
-  };
+interface CardIconProps {
+  url: string;
+  alt?: string;
+}
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
-    setStartPos({ x: e.clientX - position.x, y: e.clientY - position.y });
-  };
+const CardIcon: FC<CardIconProps> = ({ url, alt = '' }) => (
+  <Image draggable={false} src={url} width={60} height={60} alt={alt} />
+);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    setPosition({
-      x: e.clientX - startPos.x,
-      y: e.clientY - startPos.y,
-    });
-  };
+const ListOfTechnologies: FC<ListOfTechnologiesProps> = ({ title, listUrlImage }) => (
+  <>
+    {title && <div className="text-2xl md:text-3xl font-bold uppercase">{title}</div>}
+    <div className="flex flex-wrap gap-3 mt-4">
+      {listUrlImage?.map((url, index) => <CardIcon key={index} url={url} />)}
+    </div>
+  </>
+);
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+const ContentImage: FC = () => (
+  <div className="w-full xl:w-[50%] max-h-[40vh] xl:max-h-[75vh] overflow-clip rounded-lg">
+    <img
+      className="w-full h-full object-cover"
+      src="https://www.eapprojetos.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fportfolio_2.af478c7d.png&w=3840&q=75"
+      alt="Imagem do portfólio"
+    />
+  </div>
+);
+
+const Header: FC<IHeaderProps> = ({ title, description, paragraph }) => (
+  <DialogHeader>
+    <DialogTitle>
+      <span className="text-4xl font-bold uppercase">{title}</span>
+    </DialogTitle>
+    <DialogDescription>{description}</DialogDescription>
+    {paragraph?.map((value, index) => (
+      <p key={index} className="text-lg font-semibold text-gray-900/70">
+        {value}
+      </p>
+    ))}
+  </DialogHeader>
+);
+
+const Footer: FC = () => (
+  <DialogFooter className="sm:justify-start mt-8">
+    <DialogClose asChild>
+      <Button type="button" variant="secondary">
+        Voltar
+      </Button>
+    </DialogClose>
+  </DialogFooter>
+);
+
+const Content: FC = () => {
+  const [data, setData] = useState<IPortfolioData | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchData = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('http://localhost:3000/api/v1/portfolios');
+      setData(response.data.data[0]);
+      setError(null);
+    } catch (error) {
+      console.error('Erro ao buscar portfolios:', error);
+      setError('Falha ao carregar os dados do portfólio');
+      setData(null);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
-    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-      <Dialog.Trigger asChild>
-        <Button className="w-full mt-8 font-semibold">{textButton}</Button>
-      </Dialog.Trigger>
-
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
-
-        {isOpen && (
-          <div className="fixed top-6 right-6 z-[70] flex items-center gap-2">
-            <Dialog.Close asChild>
-              <button
-                className="p-2 rounded-full bg-white shadow border hover:text-gray-700 text-gray-500"
-                aria-label="Fechar"
-              >
-                <Cross2Icon className="w-5 h-5" />
-              </button>
-            </Dialog.Close>
+    <DialogContent className="w-full xl:max-w-[70vw] max-h-[90vh] overflow-y-auto p-6">
+      <div className="flex flex-col xl:flex-row gap-6 w-full">
+        <ContentImage />
+        {isLoading && <div>Carregando...</div>}
+        {error && <div className="text-red-500">{error}</div>}
+        {data && (
+          <div className="flex flex-col space-y-4 flex-1 w-full">
+            <Header title={data.title} paragraph={data.paragraph} description={data.description} />
+            {data.technologies?.map((tech, index) => (
+              <ListOfTechnologies key={index} title={tech.title} listUrlImage={tech.listUrlImage} />
+            ))}
+            <div className="mt-auto">
+              <Footer />
+            </div>
           </div>
         )}
+      </div>
+    </DialogContent>
+  );
+};
 
-        <Dialog.Content
-          onPointerUp={handleMouseUp}
-          onMouseUp={handleMouseUp}
-          className="fixed top-1/4 left-1/2 z-50 w-[90vw] max-w-4xl  h-[40vh] lg:h-[70vh] -translate-x-1/2 -translate-y-1/4 rounded-2xl focus:outline-none"
-        >
-          <div
-            onWheel={handleWheel}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            className="w-full h-full overflow-hidden border rounded-xl cursor-grab active:cursor-grabbing bg-black/5"
-          >
-            <img
-              ref={imageRef}
-              src="https://picsum.photos/1200/2400"
-              alt="Imagem"
-              draggable={false}
-              style={{
-                transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
-                transition: isDragging ? 'none' : 'transform 0.2s ease',
-              }}
-              className="w-full h-auto select-none pointer-events-none"
-            />
-          </div>
-          <div className={'p-6 mt-4 rounded-xl bg-black/70 text-white/60'}>
-            <Dialog.Title className={'text-2xl'}>Visualização da Imagem</Dialog.Title>
-            <Dialog.Description>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industrys standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries,
-            </Dialog.Description>
-          </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+export const PortfolioView: FC<IPortfolioViewProps> = ({ textButton }) => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">{textButton}</Button>
+      </DialogTrigger>
+      <Content />
+    </Dialog>
   );
 };
