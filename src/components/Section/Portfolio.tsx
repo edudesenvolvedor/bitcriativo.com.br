@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '@/components/Section/index';
+import { PortfolioView } from '@/components/dialog/portfolio-view';
 
 const portfolioProjects = [
   {
@@ -18,15 +19,9 @@ const portfolioProjects = [
     link: '#',
   },
   {
-    title: 'Projeto C',
-    description: 'Aplicativo móvel para rastreamento de hábitos saudáveis.',
-    image: 'https://picsum.photos/600/400',
-    link: '#',
-  },
-  {
     title: 'Projeto D',
     description: 'Site institucional para uma organização sem fins lucrativos.',
-    image: 'https://picsum.photos/600/400',
+    image: 'https://picsum.photos/600/1200',
     link: '#',
   },
 ];
@@ -93,9 +88,7 @@ export function Portfolio() {
               <div className="text-white">
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
                 <p className="text-lg mt-2">{project.description}</p>
-                <a href={project.link} className="mt-4 inline-block text-sm text-white underline">
-                  Ver mais
-                </a>
+                <PortfolioView textButton={'Ver Mais'} />
               </div>
             </div>
           </motion.div>
