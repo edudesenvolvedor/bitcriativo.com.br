@@ -1,9 +1,36 @@
+'use client';
+
 import React from 'react';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { Newsletter, newsletterSchema } from '@/libs/schemas/newsletter-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import { toast } from 'sonner';
 
 const Footer = () => {
+  const { register, handleSubmit, reset } = useForm<Newsletter>({
+    resolver: zodResolver(newsletterSchema),
+  });
+
+  const handleSubmitSubscribeNewsletter = async (data: Newsletter): Promise<void> => {
+    try {
+      const request = await axios.post('http://localhost:3000/api/v1/newsletter', {
+        email: data.email,
+      });
+
+      if (request.status === 200) {
+        toast.success('Inscrito com sucesso!');
+      }
+    } catch (err) {
+      toast.error('Ops...por favor, tenta mais tarde!');
+      console.error(err);
+    }
+    reset();
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-12 px-8">
       <div className="max-w-6xl mx-auto text-center">
@@ -49,10 +76,17 @@ const Footer = () => {
 
           <div>
             <h3 className="font-semibold mb-4 text-red-500">Assine nossa Newsletter</h3>
-            <Input type="email" placeholder="Seu email" className={'text-black'} />
-            <Button variant={'primary'} className="mt-4 w-full">
-              Inscrever
-            </Button>
+            <form onSubmit={handleSubmit(handleSubmitSubscribeNewsletter)}>
+              <Input
+                {...register('email')}
+                type="email"
+                placeholder="Seu email"
+                className={'text-black'}
+              />
+              <Button variant={'primary'} className="mt-4 w-full">
+                Inscrever
+              </Button>
+            </form>
           </div>
         </div>
 
