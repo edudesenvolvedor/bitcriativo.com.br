@@ -6,19 +6,16 @@ import Button from '@/components/Button';
 import Image from 'next/image';
 import imageBrand from '@/assets/images/logo.png';
 import { cva } from 'class-variance-authority';
-import { Navlink } from '@/components/Navbar/navlink';
+import { Navlink } from '@/components/navbar/navlink';
 
-export const navbarVariants = cva(
-  'z-40 fixed top-0 left-0 w-full transition-all duration-300 p-4',
-  {
-    variants: {
-      hasBackground: {
-        true: 'bg-white shadow-lg',
-        false: 'bg-transparent',
-      },
+export const navbarVariants = cva('z-40 fixed top-0 left-0 w-full transition-all duration-300', {
+  variants: {
+    hasBackground: {
+      true: 'bg-white shadow-lg',
+      false: 'bg-transparent',
     },
   },
-);
+});
 
 export const menuVariants = cva(
   'absolute lg:static top-16 left-0 w-full lg:w-auto transition-all lg:flex lg:items-center space-x-8 px-4 py-4',

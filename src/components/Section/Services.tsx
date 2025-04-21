@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/components/section/index';
 import { Code, ShieldCheck, Cloud, Users } from 'lucide-react';
 
 const services = [
@@ -56,7 +56,13 @@ const Services = () => {
   }, []);
 
   return (
-    <Section id="servicos" ref={sectionRef} className={'text-center'}>
+    <Section
+      id="servicos"
+      ref={sectionRef}
+      className={'text-center'}
+      labelAlign={'bottomRight'}
+      label={'serviços'}
+    >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}

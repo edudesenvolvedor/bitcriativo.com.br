@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/components/section/index';
 import Link from 'next/link';
 
 export const Hero = () => {

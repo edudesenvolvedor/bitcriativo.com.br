@@ -1,19 +1,19 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/components/section/index';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import { motion } from 'framer-motion';
 import { Controller, FieldErrors, useForm } from 'react-hook-form';
-import { Contact as ContactType, ContactSchema } from '@/schemas/contact-schema';
+import { Contact as ContactType, ContactSchema } from '@/lib/schemas/contact-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import MaskedPhoneInput from '@/components/Input/masked-phone-input';
 import { Textarea } from '@headlessui/react';
 import { FormErrorMessage } from '@/components/form-error-message';
-import { QuoteRequest } from '@/schemas/quote-request-schema';
+import { QuoteRequest } from '@/lib/schemas/quote-request-schema';
 import { toast } from 'sonner';
-import { api } from '@/libs/data/api';
+import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 
 const Contact = () => {
