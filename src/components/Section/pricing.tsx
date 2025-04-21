@@ -58,6 +58,8 @@ export const Pricing = () => {
           </p>
         </div>
       }
+      label="Planos"
+      labelAlign={'bottomRight'}
     >
       <PricingGrid plans={plans} />
     </Section>
