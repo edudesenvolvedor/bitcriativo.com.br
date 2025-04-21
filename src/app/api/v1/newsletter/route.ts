@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Newsletter, newsletterSchema } from '@/libs/api/schemas/newsletter-schema';
+import { Newsletter, newsletterSchema } from '@/lib/api/schemas/newsletter-schema';
 import { ZodError } from 'zod';
 import { db } from '@/libs/database/db';
 
