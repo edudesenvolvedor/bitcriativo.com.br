@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '@/components/section/index';
 import { Star } from 'lucide-react';
@@ -28,26 +28,34 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <Section id="depoimentos" className={'text-center'}>
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-5xl md:text-6xl font-bold uppercase text-gray-900 leading-tight"
-      >
-        O que nossos <span className="text-red-500">clientes</span> dizem
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto"
-      >
-        Veja como a nossa equipe tem impactado positivamente as empresas de nossos clientes.
-      </motion.p>
-
+    <Section
+      id="depoimentos"
+      className={'text-center'}
+      description={
+        <>
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-6xl font-bold uppercase text-gray-900 leading-tight"
+          >
+            O que nossos <span className="text-red-500">clientes</span> dizem
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto"
+          >
+            Veja como a nossa equipe tem impactado positivamente as empresas de nossos clientes.
+          </motion.p>
+        </>
+      }
+      label={'depoimentos'}
+      labelAlign={'bottomLeft'}
+    >
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
         {testimonials.map((testimonial, index) => (
           <motion.div
@@ -58,22 +66,47 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="p-8 bg-white shadow-lg rounded-lg text-left flex flex-col justify-evenly"
           >
-            <p className="text-lg text-gray-600 italic">&quot;{testimonial.text}&quot;</p>
-            <div className="mt-4 flex items-center">
-              <div className="flex text-yellow-500">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5" />
-                ))}
-              </div>
-              <div className="ml-4">
-                <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                <p className="text-gray-600">{testimonial.position}</p>
-              </div>
-            </div>
+            <CardTestimonial
+              name={testimonial.name}
+              text={testimonial.text}
+              rating={testimonial.rating}
+              position={testimonial.position}
+            />
           </motion.div>
         ))}
       </div>
     </Section>
+  );
+};
+
+interface ICardTestimonialProps {
+  text: string;
+  rating: number;
+  name: string;
+  position: string;
+}
+
+export const CardTestimonial: FC<ICardTestimonialProps> = ({
+  text,
+  rating,
+  name,
+  position,
+}: ICardTestimonialProps) => {
+  return (
+    <>
+      <p className="text-lg text-gray-600 italic">&quot;{text}&quot;</p>
+      <div className="mt-4 flex items-center">
+        <div className="flex text-yellow-500">
+          {[...Array(rating)].map((_, i) => (
+            <Star key={i} className="w-5 h-5" />
+          ))}
+        </div>
+        <div className="ml-4">
+          <p className="font-semibold text-gray-900">{name}</p>
+          <p className="text-gray-600">{position}</p>
+        </div>
+      </div>
+    </>
   );
 };
 
