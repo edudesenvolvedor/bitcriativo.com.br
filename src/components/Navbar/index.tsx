@@ -1,11 +1,12 @@
 'use client';
 
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import imageBrand from '@/assets/images/logo.png';
 import { cva } from 'class-variance-authority';
+import { Navlink } from './navlink';
 
 export const navbarVariants = cva(
   'z-40 fixed top-0 left-0 w-full transition-all duration-300 p-4',
@@ -20,7 +21,7 @@ export const navbarVariants = cva(
 );
 
 export const menuVariants = cva(
-  'absolute md:static top-16 left-0 w-full md:w-auto transition-all md:flex md:items-center space-x-8',
+  'absolute md:static top-16 left-0 w-full md:w-auto transition-all md:flex md:items-center space-x-8 px-4 py-4',
   {
     variants: {
       isMenuOpen: {
@@ -31,11 +32,7 @@ export const menuVariants = cva(
   },
 );
 
-type Props = {
-  children: ReactNode;
-};
-
-const Navbar = ({ children }: Props) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasBackground, setHasBackground] = useState(false);
 
@@ -61,12 +58,31 @@ const Navbar = ({ children }: Props) => {
         </Link>
 
         <div className={menuVariants({ isMenuOpen })}>
-          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0">
-            {children}
+          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0 text-center *:py-2">
+            <Navlink href="inicio" onClick={toggleMenu}>
+              Início
+            </Navlink>
+            <Navlink href="sobre-nos" onClick={toggleMenu}>
+              Sobre nós
+            </Navlink>
+            <Navlink href="servicos" onClick={toggleMenu}>
+              Serviços
+            </Navlink>
+            <Navlink href="depoimentos" onClick={toggleMenu}>
+              Depoimentos
+            </Navlink>
+            <Navlink href="planos" onClick={toggleMenu}>
+              Preço
+            </Navlink>
+            <Navlink href="contato" onClick={toggleMenu}>
+              Contato
+            </Navlink>
           </ul>
 
           <Link href={'/#planos'}>
-            <Button>Quero um Orçamento</Button>
+            <Button className="w-full" onClick={toggleMenu}>
+              Quero um Orçamento
+            </Button>
           </Link>
         </div>
 
