@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/section/layouts/footer';
 import { ReactNode } from 'react';
-import { Footer } from '@/components/section/Footer';
 
 type Props = {
   children: ReactNode;
