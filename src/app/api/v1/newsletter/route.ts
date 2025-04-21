@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Newsletter, newsletterSchema } from '@/lib/api/schemas/newsletter-schema';
 import { ZodError } from 'zod';
-import { db } from '@/libs/database/db';
+import { db } from '@/lib/database/db';
 
 export async function POST(req: NextRequest) {
   try {
