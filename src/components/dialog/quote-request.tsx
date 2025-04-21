@@ -11,7 +11,7 @@ import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { QuoteRequest, QuoteRequestSchema } from '@/schemas/quote-request-schema';
+import { QuoteRequest, QuoteRequestSchema } from '@/lib/schemas/quote-request-schema';
 import { FormErrorMessage } from '@/components/form-error-message';
 
 interface IProps {
