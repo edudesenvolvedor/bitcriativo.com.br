@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/components/section/index';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import { motion } from 'framer-motion';

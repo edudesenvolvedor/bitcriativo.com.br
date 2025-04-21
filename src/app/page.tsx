@@ -1,12 +1,12 @@
-import { Hero } from '@/components/Section/Hero';
-import { About } from '@/components/Section/About';
-import { Features } from '@/components/Section/Features';
-import { Services } from '@/components/Section/Services';
-import { Testimonials } from '@/components/Section/Testimonials';
-import { Contact } from '@/components/Section/contact';
+import { Hero } from '@/components/section/Hero';
+import { About } from '@/components/section/About';
+import { Features } from '@/components/section/Features';
+import { Services } from '@/components/section/Services';
+import { Testimonials } from '@/components/section/Testimonials';
+import { Contact } from '@/components/section/contact';
 import { MainLayout } from '@/layouts/MainLayout';
-import { Portfolio } from '@/components/Section/Portfolio';
-import { Pricing } from '@/components/Section/pricing';
+import { Portfolio } from '@/components/section/Portfolio';
+import { Pricing } from '@/components/section/pricing';
 
 export default function Home() {
   return (

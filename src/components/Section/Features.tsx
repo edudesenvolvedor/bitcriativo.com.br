@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/components/section/index';
 import { CheckCircle } from 'lucide-react';
 
 const features = [
