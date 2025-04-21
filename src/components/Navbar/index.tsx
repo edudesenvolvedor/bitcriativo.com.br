@@ -20,7 +20,7 @@ export const navbarVariants = cva(
 );
 
 export const menuVariants = cva(
-  'absolute md:static top-16 left-0 w-full md:w-auto transition-all md:flex md:items-center space-x-8',
+  'absolute md:static top-16 left-0 w-full md:w-auto transition-all md:flex md:items-center space-x-8 px-4',
   {
     variants: {
       isMenuOpen: {
@@ -36,7 +36,7 @@ type Props = {
 };
 
 const Navbar = ({ children }: Props) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [hasBackground, setHasBackground] = useState(false);
 
   useEffect(() => {
@@ -61,12 +61,12 @@ const Navbar = ({ children }: Props) => {
         </Link>
 
         <div className={menuVariants({ isMenuOpen })}>
-          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0">
+          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0 text-center *:py-2">
             {children}
           </ul>
 
           <Link href={'/#planos'}>
-            <Button>Quero um Orçamento</Button>
+            <Button className='w-full'>Quero um Orçamento</Button>
           </Link>
         </div>
 
