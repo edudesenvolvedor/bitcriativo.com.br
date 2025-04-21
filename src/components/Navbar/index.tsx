@@ -21,12 +21,12 @@ export const navbarVariants = cva(
 );
 
 export const menuVariants = cva(
-  'absolute md:static top-16 left-0 w-full md:w-auto transition-all md:flex md:items-center space-x-8 px-4 py-4',
+  'absolute lg:static top-16 left-0 w-full lg:w-auto transition-all lg:flex lg:items-center space-x-8 px-4 py-4',
   {
     variants: {
       isMenuOpen: {
-        true: 'block bg-white md:bg-transparent',
-        false: 'hidden bg-white md:bg-transparent',
+        true: 'block bg-white lg:bg-transparent',
+        false: 'hidden bg-white lg:bg-transparent',
       },
     },
   },
@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <nav className={navbarVariants({ hasBackground })}>
-      <div className="container flex justify-between items-center py-2">
+      <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="text-[#101828] text-2xl flex space-x-2">
           <Image src={imageBrand} alt="logo" width={34} height={34} />
           <span>
@@ -58,7 +58,7 @@ const Navbar = () => {
         </Link>
 
         <div className={menuVariants({ isMenuOpen })}>
-          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0 text-center *:py-2">
+          <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 p-4 lg:p-0 text-center *:py-2">
             <Navlink href="inicio" onClick={toggleMenu}>
               Início
             </Navlink>
@@ -86,7 +86,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <button className="md:hidden text-[#101828] focus:outline-none" onClick={toggleMenu}>
+        <button className="lg:hidden text-[#101828] focus:outline-none" onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
