@@ -7,7 +7,7 @@ import React, { FC, useState } from 'react';
 import { useForm, Controller, FieldErrors } from 'react-hook-form';
 import Button from '@/components/Button';
 import MaskedPhoneInput from '@/components/Input/masked-phone-input';
-import { api } from '@/libs/data/api';
+import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';

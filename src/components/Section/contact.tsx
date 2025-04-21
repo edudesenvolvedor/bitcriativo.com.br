@@ -13,7 +13,7 @@ import { Textarea } from '@headlessui/react';
 import { FormErrorMessage } from '@/components/form-error-message';
 import { QuoteRequest } from '@/schemas/quote-request-schema';
 import { toast } from 'sonner';
-import { api } from '@/libs/data/api';
+import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 
 const Contact = () => {

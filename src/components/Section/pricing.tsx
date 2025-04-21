@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '@/components/section';
 import PricingCard from '@/components/pricing-card';
-import { getPlansData } from '@/libs/data/getPlansData';
+import { getPlansData } from '@/lib/data/getPlansData';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 interface IProps extends VariantProps<typeof styles> {
