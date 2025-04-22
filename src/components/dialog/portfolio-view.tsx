@@ -4,7 +4,7 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import {
   Dialog,
   DialogClose,

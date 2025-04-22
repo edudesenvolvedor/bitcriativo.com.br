@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Input from '@/components/Input';
-import Button from '@/components/Button';
+import Button from '@/components/button';
 
 export default function SignIn() {
   //const navigate = useNavigate();

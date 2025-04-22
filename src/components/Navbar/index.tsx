@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import Image from 'next/image';
 import imageBrand from '@/assets/images/logo.png';
 import { cva } from 'class-variance-authority';
-import { Navlink } from '@/components/navbar/navlink';
+import { Navlink } from '@/components/Navbar/navlink';
 
 export const navbarVariants = cva('z-40 fixed top-0 left-0 w-full transition-all duration-300', {
   variants: {

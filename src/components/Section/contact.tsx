@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Section } from '@/components/section/index';
 import Input from '@/components/Input';
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import { motion } from 'framer-motion';
 import { Controller, FieldErrors, useForm } from 'react-hook-form';
 import { Contact as ContactType, ContactSchema } from '@/lib/schemas/contact-schema';

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { toast } from 'sonner';
 import Input from '@/components/Input';
-import Button from '@/components/Button';
+import Button from '@/components/button';
 
 export const FormSubscribeNewsletter: FC = () => {
   const { register, handleSubmit, reset } = useForm<Newsletter>({
