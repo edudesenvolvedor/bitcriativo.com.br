@@ -1,5 +1,5 @@
 import { Hero } from '@/components/section/Hero';
-import { About } from '@/components/section/About';
+import { About } from '@/components/section/about';
 import { Features } from '@/components/section/Features';
 import { Contact } from '@/components/section/contact';
 import { MainLayout } from '@/layouts/main-layout';
