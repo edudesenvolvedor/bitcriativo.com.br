@@ -3,18 +3,13 @@ import { cva } from 'class-variance-authority';
 import React, { ReactNode, Ref } from 'react';
 
 const labelClasses = cva(
-  'absolute text-gray-300 font-bold uppercase opacity-50 select-none text-4xl md:text-6xl lg:text-8xl',
+  '2xl:absolute text-gray-300 font-bold uppercase opacity-50 select-none text-6xl md:text-6xl lg:text-8xl py-8 text-start',
   {
     variants: {
       labelAlign: {
-        top: 'top-4 left-1/2 -translate-x-1/2 text-center',
-        bottom: 'bottom-4 left-1/2 -translate-x-1/2 text-center',
-        left: 'max-md:top-4 max-md:left-1/2 max-md:-translate-x-1/2 max-md:text-center md:left-4 md:top-1/2 md:-translate-y-1/2',
-        right:
-          'max-md:bottom-4 max-md:left-1/2 max-md:-translate-x-1/2 max-md:text-center md:right-4 md:top-1/2 md:-translate-y-1/2',
         topLeft: 'top-4 left-4 md:top-8 md:left-8',
         bottomLeft: 'bottom-4 left-4 md:bottom-8 md:left-8',
-        topRight: 'top-4 right-4 md:top-8 md:right-8',
+        topRight: 'top-4 right-4 md:top-8 md:right-8 relative',
         bottomRight: 'bottom-4 right-4 md:bottom-8 md:right-8',
         default: 'bottom-4 left-4 md:bottom-8 md:left-8',
       },

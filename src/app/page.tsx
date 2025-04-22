@@ -1,12 +1,12 @@
-import { Hero } from '@/components/Section/Hero';
-import { About } from '@/components/Section/About';
-import { Features } from '@/components/Section/Features';
-import { Services } from '@/components/Section/Services';
-import { Testimonials } from '@/components/Section/Testimonials';
-import { Contact } from '@/components/Section/contact';
-import { MainLayout } from '@/layouts/MainLayout';
-import { Portfolio } from '@/components/Section/Portfolio';
-import { Pricing } from '@/components/Section/pricing';
+import { MainLayout } from '@/layouts/main-layout';
+import { About } from '@/layouts/section/about';
+import { Features } from '@/layouts/section/features';
+import { Hero } from '@/layouts/section/hero';
+import { Portfolio } from '@/layouts/section/portfolio';
+import { Pricing } from '@/layouts/section/pricing';
+import { Services } from '@/layouts/section/services';
+import { Testimonials } from '@/layouts/section/testimonials';
+import { Contact } from 'lucide-react';
 
 export default function Home() {
   return (

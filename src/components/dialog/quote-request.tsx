@@ -2,17 +2,16 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import Input from '@/components/Input';
 import React, { FC, useState } from 'react';
 import { useForm, Controller, FieldErrors } from 'react-hook-form';
-import Button from '@/components/Button';
-import MaskedPhoneInput from '@/components/Input/masked-phone-input';
-import { api } from '@/libs/data/api';
+import { Button } from '@/components/ui/button';
+import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { QuoteRequest, QuoteRequestSchema } from '@/schemas/quote-request-schema';
+import { QuoteRequest, QuoteRequestSchema } from '@/lib/schemas/quote-request-schema';
 import { FormErrorMessage } from '@/components/form-error-message';
+import { Input, MaskedPhoneInput } from '@/components/ui/input';
 
 interface IProps {
   textButton: string;
