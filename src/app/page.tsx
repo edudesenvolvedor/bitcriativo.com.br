@@ -1,6 +1,6 @@
 import { Hero } from '@/components/section/Hero';
 import { About } from '@/components/section/about';
-import { Features } from '@/components/section/Features';
+import { Features } from '@/components/section/features';
 import { Contact } from '@/components/section/contact';
 import { MainLayout } from '@/layouts/main-layout';
 import { Portfolio } from '@/components/section/Portfolio';
