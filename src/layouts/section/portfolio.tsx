@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Section } from '@/components/section/index';
+import { Section } from '@/layouts/section';
 import { PortfolioView } from '@/components/dialog/portfolio-view';
 
 const portfolioProjects = [

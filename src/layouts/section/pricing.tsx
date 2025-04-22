@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '@/components/section';
+import { Section } from '@/layouts/section';
 import PricingCard from '@/components/pricing-card';
 import { getPlansData } from '@/lib/data/getPlansData';
 import { cva, type VariantProps } from 'class-variance-authority';
