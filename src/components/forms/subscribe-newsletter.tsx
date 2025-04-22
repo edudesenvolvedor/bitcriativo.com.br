@@ -4,10 +4,10 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { Newsletter, newsletterSchema } from '@/lib/schemas/newsletter-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { subscribeNewsletter } from '@/lib/data/subscribe-newsletter';
 
 export const FormSubscribeNewsletter: FC = () => {
   const { register, handleSubmit, reset } = useForm<Newsletter>({
@@ -16,13 +16,8 @@ export const FormSubscribeNewsletter: FC = () => {
 
   const handleSubmitSubscribeNewsletter = async (data: Newsletter): Promise<void> => {
     try {
-      const request = await axios.post('http://localhost:3000/api/v1/newsletter', {
-        email: data.email,
-      });
-
-      if (request.status === 200) {
-        toast.success('Inscrito com sucesso!');
-      }
+      await subscribeNewsletter(data.email);
+      toast.success('Inscrito com sucesso!');
     } catch (err) {
       toast.error('Ops...por favor, tenta mais tarde!');
       console.error(err);
