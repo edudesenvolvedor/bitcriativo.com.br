@@ -4,7 +4,6 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 
-import Button from '@/components/button';
 import {
   Dialog,
   DialogClose,
@@ -15,6 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 interface ITechnologies {
   title: string;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FC, ReactNode } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
@@ -9,6 +10,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        primary: 'bg-red-500 text-white hover:bg-red-600',
+        success: 'bg-green-500 text-white hover:bg-green-600',
+        error: 'bg-red-600 text-white hover:bg-red-700',
         default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
@@ -26,22 +30,21 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: 'primary',
       size: 'default',
     },
   },
 );
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<'button'> &
+type IProps = React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
-  }) {
+  } & {
+    children?: ReactNode;
+    isLoading?: boolean;
+  };
+
+function ButtonSkeleton({ className, variant, size, asChild = false, ...props }: IProps) {
   const Comp = asChild ? Slot : 'button';
 
   return (
@@ -53,4 +56,8 @@ function Button({
   );
 }
 
-export { Button, buttonVariants };
+const Button: FC<IProps> = ({ children, ...props }: IProps) => {
+  return <ButtonSkeleton {...props}>{children}</ButtonSkeleton>;
+};
+
+export { Button, ButtonSkeleton, buttonVariants };

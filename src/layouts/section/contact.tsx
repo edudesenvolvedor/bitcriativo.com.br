@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Section } from '@/layouts/section';
 import Input from '@/components/input';
-import Button from '@/components/button';
 import { motion } from 'framer-motion';
 import { Controller, FieldErrors, useForm } from 'react-hook-form';
 import { Contact as ContactType, ContactSchema } from '@/lib/schemas/contact-schema';
@@ -15,6 +14,7 @@ import { QuoteRequest } from '@/lib/schemas/quote-request-schema';
 import { toast } from 'sonner';
 import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
+import { Button } from '@/components/ui/button';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

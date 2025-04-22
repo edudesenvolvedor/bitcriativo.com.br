@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import Input from '@/components/input';
-import Button from '@/components/button';
+import { Button } from '@/components/ui/button';
 
 const job = {
   title: 'Desenvolvedor Full Stack',

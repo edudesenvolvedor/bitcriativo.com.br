@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Input from '@/components/input';
-import Button from '@/components/button';
+import { Button } from '@/components/ui/button';
 
 const jobListings = [
   { title: 'Desenvolvedor Full Stack', location: 'Remoto', type: 'Tempo Integral' },
