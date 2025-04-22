@@ -5,7 +5,7 @@ import { Contact } from '@/components/section/contact';
 import { MainLayout } from '@/layouts/main-layout';
 import { Portfolio } from '@/components/section/portfolio';
 import { Pricing } from '@/components/section/pricing';
-import { Testimonials } from '@/components/section/Testimonials';
+import { Testimonials } from '@/components/section/testimonials';
 import { Services } from '@/components/section/services';
 
 export default function Home() {
