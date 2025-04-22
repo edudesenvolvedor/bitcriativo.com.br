@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Button from '@/components/button';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import imageBrand from '@/assets/images/logo.png';
 import { cva } from 'class-variance-authority';

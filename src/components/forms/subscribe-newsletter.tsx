@@ -6,8 +6,8 @@ import { Newsletter, newsletterSchema } from '@/lib/schemas/newsletter-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { toast } from 'sonner';
-import Input from '@/components/input';
-import Button from '@/components/button';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export const FormSubscribeNewsletter: FC = () => {
   const { register, handleSubmit, reset } = useForm<Newsletter>({
