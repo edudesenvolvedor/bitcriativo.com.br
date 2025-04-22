@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section } from '@/components/Section/index';
+import { Section } from '@/layouts/section';
 import Link from 'next/link';
 
 export const Hero = () => {
@@ -17,7 +17,7 @@ export const Hero = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="flex flex-col justify-center"
       >
-        <h1 className="text-6xl md:text-7xl font-bold leading-tight text-gray-900 uppercase">
+        <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight text-gray-900 uppercase">
           Faça o Melhor <span className="text-red-500">Investimento</span>
         </h1>
         <p className="text-lg text-gray-600 mt-4 max-w-md">
@@ -27,7 +27,7 @@ export const Hero = () => {
         <div className="mt-6 flex">
           <Link
             className={
-              'flex items-center justify-center font-medium rounded-lg transition-all duration-300 cursor-pointer bg-gray-900 text-white hover:bg-gray-700 py-3 px-6'
+              'flex items-center justify-center font-medium rounded-lg transition-all duration-300 cursor-pointer bg-gray-900 text-white hover:bg-gray-700 py-3 px-6 w-full md:w-auto'
             }
             href={'/#planos'}
           >
