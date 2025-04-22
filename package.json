@@ -7,16 +7,15 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "db:deploy": "npx prisma generate && npx prisma migrate deploy",
+    "build": "npm run db:deploy && next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "generate:dev": "npx prisma generate --schema=prisma/schema.dev.prisma",
-    "generate:prod": "npx prisma generate --schema=prisma/schema.production.prisma",
-    "migrate:dev": "npx prisma migrate dev --schema=prisma/schema.dev.prisma",
-    "migrate:prod": "npx prisma migrate deploy --schema=prisma/schema.production.prisma",
-    "studio:dev": "npx prisma studio --schema=prisma/schema.dev.prisma",
-    "studio:prod": "npx prisma studio --schema=prisma/schema.production.prisma"
+    "generate:dev": "npx prisma generate",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:prod": "npx prisma migrate deploy",
+    "studio:dev": "npx prisma studio"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
