@@ -2,11 +2,11 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import Input from '@/components/Input';
+import Input from '@/components/input';
 import React, { FC, useState } from 'react';
 import { useForm, Controller, FieldErrors } from 'react-hook-form';
 import Button from '@/components/button';
-import MaskedPhoneInput from '@/components/Input/masked-phone-input';
+import MaskedPhoneInput from '@/components/input/masked-phone-input';
 import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 import { toast } from 'sonner';

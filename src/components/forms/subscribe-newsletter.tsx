@@ -6,7 +6,7 @@ import { Newsletter, newsletterSchema } from '@/lib/schemas/newsletter-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { toast } from 'sonner';
-import Input from '@/components/Input';
+import Input from '@/components/input';
 import Button from '@/components/button';
 
 export const FormSubscribeNewsletter: FC = () => {

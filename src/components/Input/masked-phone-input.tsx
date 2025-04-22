@@ -1,7 +1,7 @@
 'use client';
 
 import { ChangeEvent, FC } from 'react';
-import Input, { CustomInputTypes } from '@/components/Input/index';
+import Input, { CustomInputTypes } from '@/components/input/index';
 
 const maskPhone = (value: string) => {
   const digits = value.replace(/\D/g, '').slice(0, 11);
