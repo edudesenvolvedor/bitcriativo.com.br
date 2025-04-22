@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Input from '@/components/input';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const jobListings = [
   { title: 'Desenvolvedor Full Stack', location: 'Remoto', type: 'Tempo Integral' },

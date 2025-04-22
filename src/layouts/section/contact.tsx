@@ -2,12 +2,10 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Section } from '@/layouts/section';
-import Input from '@/components/input';
 import { motion } from 'framer-motion';
 import { Controller, FieldErrors, useForm } from 'react-hook-form';
 import { Contact as ContactType, ContactSchema } from '@/lib/schemas/contact-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import MaskedPhoneInput from '@/components/input/masked-phone-input';
 import { Textarea } from '@headlessui/react';
 import { FormErrorMessage } from '@/components/form-error-message';
 import { QuoteRequest } from '@/lib/schemas/quote-request-schema';
@@ -15,6 +13,7 @@ import { toast } from 'sonner';
 import { api } from '@/lib/data/api';
 import { generateEmailHtml } from '@/templates/email/quote-request';
 import { Button } from '@/components/ui/button';
+import { Input, MaskedPhoneInput } from '@/components/ui/input';
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

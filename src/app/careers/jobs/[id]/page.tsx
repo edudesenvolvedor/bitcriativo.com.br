@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import Input from '@/components/input';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const job = {
   title: 'Desenvolvedor Full Stack',
