@@ -18,3 +18,14 @@ model newsletter {
   email      String   @unique
   created_at DateTime @default(now())
 }
+
+model Contact {
+  id           Int    @id @default(autoincrement())
+  name         String
+  phone_number String
+  email        String
+  subject      String
+  message      String
+
+  @@map("contacts")
+}
