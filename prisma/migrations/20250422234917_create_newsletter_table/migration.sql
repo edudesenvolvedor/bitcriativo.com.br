@@ -1,8 +1,10 @@
 -- CreateTable
 CREATE TABLE "newsletter" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "newsletter_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
