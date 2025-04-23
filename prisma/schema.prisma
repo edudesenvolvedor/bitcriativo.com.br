@@ -29,3 +29,12 @@ model Contact {
 
   @@map("contacts")
 }
+
+model RequestQuote {
+  id           Int    @id @default(autoincrement())
+  name         String
+  phone_number String
+  email        String
+
+  @@map("request_quotes")
+}
