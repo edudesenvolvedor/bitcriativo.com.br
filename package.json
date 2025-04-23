@@ -13,6 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
+    "postinstall": "",
     "generate:dev": "npx prisma generate",
     "migrate:dev": "npx prisma migrate dev",
     "migrate:prod": "npx prisma migrate deploy",
