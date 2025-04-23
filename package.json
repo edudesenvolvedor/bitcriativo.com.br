@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.18.3"
+    "node": "^20.18.3"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -12,8 +12,7 @@
     "build": "npm run db:deploy && next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production') require('child_process').execSync('husky install', { stdio: 'inherit' })\"",
-    "postinstall": "",
+    "prepare": "husky",
     "generate:dev": "npx prisma generate",
     "migrate:dev": "npx prisma migrate dev",
     "migrate:prod": "npx prisma migrate deploy",
