@@ -10,7 +10,12 @@ import { Input } from '@/components/ui/input';
 import { subscribeNewsletter } from '@/lib/data/subscribe-newsletter';
 
 export const FormSubscribeNewsletter: FC = () => {
-  const { register, handleSubmit, reset } = useForm<Newsletter>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<Newsletter>({
     resolver: zodResolver(newsletterSchema),
   });
 
@@ -28,7 +33,7 @@ export const FormSubscribeNewsletter: FC = () => {
   return (
     <form onSubmit={handleSubmit(handleSubmitSubscribeNewsletter)}>
       <Input {...register('email')} type="email" placeholder="Seu email" className={'text-black'} />
-      <Button variant={'primary'} className="mt-4 w-full">
+      <Button isLoading={isSubmitting} variant={'primary'} className="mt-4 w-full">
         Inscrever
       </Button>
     </form>

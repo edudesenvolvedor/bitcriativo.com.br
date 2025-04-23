@@ -36,6 +36,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   size?: 'sm' | 'md' | 'lg';
   isDisabled?: boolean;
   error?: boolean;
+  isLoading?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -63,7 +64,7 @@ const Input: FC<InputProps> = ({
           size,
           isDisabled: isInputDisabled ? true : undefined,
         }),
-        'bg-transparent min-w-0 shadow-xs outline-none',
+        'bg-white min-w-0 shadow-xs outline-none',
         'file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium',
         'placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground',
         'dark:bg-input/30 file:text-foreground',

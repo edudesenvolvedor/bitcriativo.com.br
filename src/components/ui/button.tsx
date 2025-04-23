@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FC, ReactNode } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { Loader2 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -44,15 +45,36 @@ type IProps = React.ComponentProps<'button'> &
     isLoading?: boolean;
   };
 
-function ButtonSkeleton({ className, variant, size, asChild = false, ...props }: IProps) {
+function ButtonSkeleton({
+  className,
+  variant,
+  size,
+  asChild = false,
+  isLoading = false,
+  disabled,
+  children,
+  ...props
+}: IProps) {
   const Comp = asChild ? Slot : 'button';
+
+  const isDisabled = disabled || isLoading;
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      disabled={isDisabled}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <>
+          <Loader2 className="animate-spin mr-2" />
+          {children}
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   );
 }
 
