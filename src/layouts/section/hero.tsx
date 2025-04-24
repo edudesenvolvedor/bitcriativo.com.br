@@ -9,14 +9,9 @@ export const Hero = () => {
     <Section
       id="inicio"
       label={'Tecnologia'}
-      className={'grid md:grid-cols-2 gap-8 mt-32 lg:mt-0 text-start'}
+      className={'grid md:grid-cols-2 gap-8 mt-14 lg:mt-0 text-start'}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="flex flex-col justify-center"
-      >
+      <div className="flex flex-col justify-center">
         <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight text-gray-900 uppercase">
           Faça o Melhor <span className="text-red-500">Investimento</span>
         </h1>
@@ -34,7 +29,7 @@ export const Hero = () => {
             Comece Agora
           </Link>
         </div>
-      </motion.div>
+      </div>
 
       <div className="relative flex items-center justify-center">
         <motion.img
